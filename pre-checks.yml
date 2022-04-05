@@ -2,10 +2,4 @@
   vars_files:
     - ./vars/const.yml
   roles:
-    - { role: "{{ PROJECT }}/prepare" , when: BUILD_METHOD == 'precheck' }
-   
-- hosts: all
-  vars_files:
-    - ./vars/const.yml
-  roles:
-    - { role: "{{ PROJECT }}/post" , when: BUILD_METHOD == 'postcheck' }
+    - { role: os_hardening , when: BUILD_METHOD == 'hardening' }
