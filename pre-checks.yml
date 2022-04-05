@@ -1,5 +1,5 @@
 - hosts: all
-  vars_files:
-    - ./vars/const.yml
+  #vars_files:
+    #- ./vars/const.yml
   roles:
     - { role: os_hardening , when: BUILD_METHOD == 'hardening' }
