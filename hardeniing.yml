@@ -3,4 +3,4 @@
     #- ./vars/const.yml
   roles:
     - { role: os_hardening , when: BUILD_METHOD == 'hardening' }
-    - { role: os_hardening , when: BUILD_METHOD == 'ssh_hardening' }
+    - { role: ssh_hardening , when: BUILD_METHOD == 'ssh_hardening' }
