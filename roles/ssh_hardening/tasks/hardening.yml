@@ -32,23 +32,23 @@
   set_fact:
     sshd_version: "{{ sshd_version_raw.stderr | regex_replace('.*_([0-9]*.[0-9]).*', '\\1') }}"
 
-- name: Set default for ssh_host_key_files if not supplied
-  include_tasks: crypto_hostkeys.yml
-  when:
-    - ssh_server_hardening | bool
-    - not ssh_host_key_files
+#- name: Set default for ssh_host_key_files if not supplied
+#  include_tasks: crypto_hostkeys.yml
+#  when:
+#    - ssh_server_hardening | bool
+#    - not ssh_host_key_files
 
-- name: Set default for ssh_macs if not supplied
-  include_tasks: crypto_macs.yml
-  when: not ssh_macs
+#- name: Set default for ssh_macs if not supplied
+#  include_tasks: crypto_macs.yml
+#  when: not ssh_macs
 
-- name: Set default for ssh_ciphers if not supplied
-  include_tasks: crypto_ciphers.yml
-  when: not ssh_ciphers
+#- name: Set default for ssh_ciphers if not supplied
+#  include_tasks: crypto_ciphers.yml
+#  when: not ssh_ciphers
 
-- name: Set default for ssh_kex if not supplied
-  include_tasks: crypto_kex.yml
-  when: not ssh_kex
+#- name: Set default for ssh_kex if not supplied
+#  include_tasks: crypto_kex.yml
+#  when: not ssh_kex
 
 - name: Create revoked_keys and set permissions to root/600
   template:
